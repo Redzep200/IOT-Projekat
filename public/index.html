@@ -25,12 +25,23 @@
     const led1OffButton = document.getElementById("led1Off");
     const led2OnButton = document.getElementById("led2On");
     const led2OffButton = document.getElementById("led2Off");
+    const bothOnButton = document.getElementById("bothOn");
+    const bothOffButton = document.getElementById("bothOff");
+    
     
 
     led1OnButton.addEventListener("click", () => updateFirebase("LED_STATUS", "ON"));
     led1OffButton.addEventListener("click", () => updateFirebase("LED_STATUS", "OFF"));
     led2OnButton.addEventListener("click", () => updateFirebase("LED_STATUS2", "ON"));
     led2OffButton.addEventListener("click", () => updateFirebase("LED_STATUS2", "OFF"));
+    bothOnButton.addEventListener("click", () => {
+    updateFirebase("LED_STATUS", "ON");
+    updateFirebase("LED_STATUS2", "ON");
+  });
+  bothOffButton.addEventListener("click", () => {
+    updateFirebase("LED_STATUS", "OFF");
+    updateFirebase("LED_STATUS2", "OFF");
+  });
     
 
     function updateFirebase(node, value) {
@@ -54,8 +65,8 @@
       cursor: pointer;
     }
     button:hover {
-      background-color: #e0e0e0; /* Lighter color on hover */
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Shadow on hover */
+      background-color: #e0e0e0; 
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
     }
     #led1On, #led1Off {
       background-color: blue;
@@ -63,6 +74,10 @@
     }
     #led2On, #led2Off {
       background-color: red;
+      color: white;
+    }
+    #bothOn,#bothOff{
+      background-color: purple;
       color: white;
     }
     #logo-container {
@@ -86,6 +101,8 @@
   <button id="led1Off">Isključi LED 1</button>
   <button id="led2On">Uključi LED 2</button>
   <button id="led2Off">Isključi LED 2</button>
+  <button id="bothOn">Uključi Obe LED</button>
+ <button id="bothOff">Isključi Obe LED</button>
  
 </body>
 </html>
